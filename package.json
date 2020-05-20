@@ -2,6 +2,7 @@
   "name": "just-counting",
   "version": "0.1.0",
   "private": true,
+  "main": "src/electron.js",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
@@ -14,7 +15,25 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "electron": "electron .",
+    "dev": "yarn run start && yarn run electron",
+    "dist-win": "yarn run build && electron-builder build --win",
+    "dist-mac": "yarn run build && electron-builder build --mac",
+    "dist": "yarn run build && electron-builder"
+  },
+  "build": {
+    "appId": "com.kwon770.just-counting",
+    "productName": "just-counting",
+    "copyright": "Copyright ©2020 sckwon",
+    "extends": null,
+    "mac": {
+      "category": "your.app.category.type",
+      "icon": "./public/ico.ico"
+    },
+    "win": {
+      "icon": "./public/ico.ico"
+    }
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -30,5 +49,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "electron": "^9.0.0",
+    "electron-builder": "^22.6.1"
   }
 }
